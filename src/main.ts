@@ -14,6 +14,9 @@ const config: Phaser.Types.Core.GameConfig = {
 			gravity: { y: 200 },
 		},
 	},
+	scale: {
+		mode: Phaser.Scale.FIT,
+	},
 	scene: [HelloWorldScene],
 }
 
