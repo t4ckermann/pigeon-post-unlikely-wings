@@ -1,15 +1,8 @@
 import Phaser from 'phaser';
 
-export default class HelloWorldScene extends Phaser.Scene {
+export default class MainScene extends Phaser.Scene {
   constructor() {
-    super({ key: 'hello-world' });
-  }
-
-  preload() {
-    this.load.setBaseURL('https://labs.phaser.io');
-
-    this.load.image('sky', 'assets/skies/space3.png');
-    this.load.image('logo', 'assets/sprites/phaser3-logo.png');
+    super({ key: 'Main' });
   }
 
   create() {
