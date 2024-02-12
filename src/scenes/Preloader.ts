@@ -25,10 +25,9 @@ export default class PreloaderScene extends Phaser.Scene {
       progressBox.destroy();
     });
 
-    this.load.setBaseURL('https://labs.phaser.io');
+    // this.load.setBaseURL('https://labs.phaser.io');
 
-    this.load.image('sky', 'assets/skies/space3.png');
-    this.load.image('logo', 'assets/sprites/phaser3-logo.png');
+    this.load.image('title', 'assets/title.jpg');
   }
 
   create() {
