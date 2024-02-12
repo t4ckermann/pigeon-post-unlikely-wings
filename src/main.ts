@@ -1,8 +1,8 @@
 import './scss/app.scss';
 
-import MainScene from './scenes/MainScene';
 import Phaser from 'phaser';
 import PreloaderScene from './scenes/Preloader';
+import TitleScene from './scenes/TitleScene';
 
 const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
@@ -18,7 +18,7 @@ const config: Phaser.Types.Core.GameConfig = {
   scale: {
     mode: Phaser.Scale.FIT,
   },
-  scene: [PreloaderScene, MainScene],
+  scene: [PreloaderScene, TitleScene],
 };
 
 export default new Phaser.Game(config);
