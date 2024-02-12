@@ -28,6 +28,7 @@ export default class PreloaderScene extends Phaser.Scene {
     // this.load.setBaseURL('https://labs.phaser.io');
 
     this.load.image('title', 'assets/title.jpg');
+    this.load.spritesheet('startButton', 'assets/startButton.png', { frameWidth: 512, frameHeight: 128 });
   }
 
   create() {

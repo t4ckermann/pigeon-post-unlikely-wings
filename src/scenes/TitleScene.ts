@@ -6,51 +6,43 @@ export default class TitleScene extends Phaser.Scene {
   }
 
   create() {
-    // this.input.enabled = true;
+    this.input.enabled = true;
 
-    // let touchStartX = 0;
-    // let touchEndX = 0;
-
-    // initialiseListeners(this.input);
     drawBackground(this);
 
-    // const logo = this.physics.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'logo');
-    // logo.setVelocity(100, 200);
-    // logo.setBounce(1, 1);
-    // logo.setCollideWorldBounds(true);
+    const button = addButton(this);
+    addButtonText(this);
+    listenForButtonInteractions(this, button);
 
     function drawBackground(scene: Phaser.Scene) {
       scene.add.image(scene.cameras.main.centerX, scene.cameras.main.centerY, 'title');
     }
 
-    // function handleSwipe() {
-    //   const SWIPE_DISTANCE = 10; // Minimum distance for a swipe
-    //   if (touchEndX - touchStartX > SWIPE_DISTANCE) {
-    //     // Swipe right
-    //     logo.setVelocity(200, 0);
-    //   } else if (touchStartX - touchEndX > SWIPE_DISTANCE) {
-    //     // Swipe left
-    //     logo.setVelocity(-200, 0);
-    //   }
-    // }
+    function addButton(scene: Phaser.Scene) {
+      const width = scene.cameras.main.width;
+      return scene.add.sprite(width / 2, 1100, 'startButton').setInteractive();
+    }
 
-    // function initialiseListeners(input: Phaser.Input.InputPlugin) {
-    //   // Listen for swipe input
-    //   input.on('pointerdown', function (pointer: PointerEvent) {
-    //     touchStartX = pointer.x;
-    //   });
-    //   input.on('touchstart', function (pointer: PointerEvent) {
-    //     touchStartX = pointer.x;
-    //   });
+    function addButtonText(scene: Phaser.Scene) {
+      const width = scene.cameras.main.width;
+      scene.add.text(width / 2 - 90, 1065, 'Start', {
+        fontSize: '64px',
+        color: '#2B243E',
+      });
+    }
 
-    //   input.on('pointerup', function (pointer: PointerEvent) {
-    //     touchEndX = pointer.x;
-    //     handleSwipe();
-    //   });
-    //   input.on('touchend', function (pointer: PointerEvent) {
-    //     touchEndX = pointer.x;
-    //     handleSwipe();
-    //   });
-    // }
+    function listenForButtonInteractions(scene: Phaser.Scene, button: Phaser.GameObjects.Sprite) {
+      button.on('pointerover', function () {
+        button.setFrame(1);
+      });
+
+      button.on('pointerout', function () {
+        button.setFrame(0);
+      });
+
+      button.on('pointerdown', () => {
+        scene.scene.start('Game');
+      });
+    }
   }
 }
