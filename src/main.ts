@@ -6,6 +6,9 @@ import { LocalStorage } from './utils/localStorage';
 import Phaser from 'phaser';
 import PreloaderScene from './scenes/Preloader';
 import TitleScene from './scenes/TitleScene';
+import { WebAppModal } from './utils/webAppModal';
+
+new WebAppModal();
 
 const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
