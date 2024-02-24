@@ -1,10 +1,9 @@
 import './scss/app.scss';
 
-import { ExtendedPhaserGame } from './types/ExtendedPhaserGame';
 import GameScene from './scenes/Game';
-import { LocalStorage } from './utils/localStorage';
 import Phaser from 'phaser';
 import PreloaderScene from './scenes/Preloader';
+import { ResultScene } from './scenes/Result';
 import TitleScene from './scenes/TitleScene';
 import { WebAppModal } from './utils/webAppModal';
 
@@ -24,9 +23,8 @@ const config: Phaser.Types.Core.GameConfig = {
   scale: {
     mode: Phaser.Scale.FIT,
   },
-  scene: [PreloaderScene, TitleScene, GameScene],
+  scene: [PreloaderScene, TitleScene, GameScene, ResultScene],
 };
 const game = new Phaser.Game(config);
-(game as ExtendedPhaserGame).globalStorage = new LocalStorage();
 
 export default game;
