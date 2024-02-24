@@ -13,7 +13,17 @@ export class Pigeon extends Phaser.GameObjects.Sprite {
   }
 
   update(): void {
-    this.anims.play('fly', true);
+    // If pigeon is moving upwards, play fly animation
+    if (this.body.velocity.y < 0) {
+      this.anims.play('fly', true);
+    } else {
+      const framesLength = this.anims.currentAnim ? this.anims.currentAnim.frames.length : 0;
+      this.anims.stop();
+      if (framesLength > 0) {
+        this.setFrame(framesLength - 1);
+      }
+    }
+
     // If pigeon reaches the bottom of the screen, emit 'dead' and stop moving
     if (this.y >= (this.scene.sys.game.config.height as number) - this.displayHeight / 2) {
       this.emit('dead');

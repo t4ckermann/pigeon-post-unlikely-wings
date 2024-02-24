@@ -1,4 +1,3 @@
-import { ExtendedPhaserGame } from '../types/ExtendedPhaserGame';
 import Phaser from 'phaser';
 import { Pigeon } from '../lib/Pigeon';
 
