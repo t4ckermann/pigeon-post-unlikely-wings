@@ -34,7 +34,7 @@ export class Pigeon extends Phaser.GameObjects.Sprite {
   }
 
   moveUp(): void {
-    this.body.setVelocityY(-100); // Move pigeon upwards
+    this.body.setVelocityY(-200); // Move pigeon upwards
     this.body.setAllowGravity(true); // Allow gravity
     this.body.setCollideWorldBounds(true); // Prevent pigeon from going out of the world bounds
   }
