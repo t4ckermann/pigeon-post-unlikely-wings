@@ -1,4 +1,4 @@
-# Game Mechanics Overview:
+# Game Mechanics Overview [outdated]
 
 ## 1. Navigation to Target Locations:
 
